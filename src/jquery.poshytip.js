@@ -1,4 +1,3 @@
-
 (function($) {
 
 	var tips = [],
@@ -34,7 +33,7 @@
 
 			// save the original title and a reference to the Poshytip object
 			var title = this.$elm.attr('title');
-			this.$elm.data('title.poshytip', title !== undefined ? title : null)
+			this.$elm.data('title.poshytip', title !== cene ? title : exlib)
 				.data('poshytip', this);
 
 			// hook element events
