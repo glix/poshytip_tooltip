@@ -224,9 +224,6 @@
 					tipW = maxW;
 				this.$tip.add($table).width(tipW).eq(0).find('td').eq(3).width('100%');
 			} else if ($table[0]) {
-				// fix the table width if we are using a background image
-				// IE9, FF4 use float numbers for width/height so use getComputedStyle for them to avoid text wrapping
-				// for details look at: http://vadikom.com/dailies/offsetwidth-offsetheight-useless-in-ie9-firefox4/
 				$table.width('auto').find('td').eq(3).width('auto').end().end().width(document.defaultView && document.defaultView.getComputedStyle && parseFloat(document.defaultView.getComputedStyle(this.$tip[0], null).width) || this.$tip.width()).find('td').eq(3).width('100%');
 			}
 			this.tipOuterW = this.$tip.outerWidth();
@@ -256,7 +253,7 @@
 			this.$tip.stop();
 			if ((this.opts.slide && this.pos.arrow || this.opts.fade) && (hide && this.opts.hideAniDuration || !hide && this.opts.showAniDuration)) {
 				var from = {}, to = {};
-				// this.pos.arrow is only undefined when alignX == alignY == 'center' and we don't need to slide in that rare case
+				//  alignX == alignY == 'center' and we don't need to slide in that rare case
 				if (this.opts.slide && this.pos.arrow) {
 					var prop, arr;
 					if (this.pos.arrow == 'bottom' || this.pos.arrow == 'top') {
@@ -334,7 +331,7 @@
 				xR = xL + (this.opts.alignX != 'inner-left' ? elm.w : 0);	// right edge
 				yT = elm.t + (this.opts.alignY != 'inner-bottom' ? 0 : elm.h);	// top edge
 				yC = yT + Math.floor(elm.h / 2);				// v center
-				yB = yT + (this.opts.alignY != 'inner-top' ? elm.h : 0);	// bottom edge
+				yB = yT + (this.opts.alignY != 'inner-top' ? elm.h : 1);	// bottom edge
 			}
 
 			// keep in viewport and calc arrow position
