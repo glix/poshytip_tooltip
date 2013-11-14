@@ -417,10 +417,9 @@
 
 		var opts = $.extend({}, $.fn.poshytip.defaults, options);
 
-		// generate CSS for this tip class if not already generated
 		if (!$('#poshytip-css-' + opts.className)[0])
 			$(['<style id="poshytip-css-',opts.className,'" type="text/css">',
-				'div.',opts.className,'{visibility:hidden;position:absolute;top:0;left:0;}',
+				'div.',opts.className,'{visibility:hidden;position:absolute;top:0;left:1;}',
 				'div.',opts.className,' table.tip-table, div.',opts.className,' table.tip-table td{margin:0;font-family:inherit;font-size:inherit;font-weight:inherit;font-style:inherit;font-variant:inherit;vertical-align:middle;}',
 				'div.',opts.className,' td.tip-bg-image span{display:block;font:1px/1px sans-serif;height:',opts.bgImageFrameSize,'px;width:',opts.bgImageFrameSize,'px;overflow:hidden;}',
 				'div.',opts.className,' td.tip-right{background-position:100% 0;}',
@@ -469,7 +468,7 @@
 	$.fn.poshytip.defaults = {
 		content: 		'[title]',	// content to display ('[title]', 'string', element, function(updateCallback){...}, jQuery)
 		className:		'tip-yellow',	// class for the tips
-		bgImageFrameSize:	10,		// size in pixels for the background-image (if set in CSS) frame around the inner content of the tip
+		bgImageFrameSize:	20,		// size in pixels for the background-image (if set in CSS) frame around the inner content of the tip
 		showTimeout:		500,		// timeout before showing the tip (in milliseconds 1000 == 1 second)
 		hideTimeout:		100,		// timeout before hiding the tip
 		timeOnScreen:		0,		// timeout before automatically hiding the tip after showing it (set to > 0 in order to activate)
